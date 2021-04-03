@@ -1,149 +1,347 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title><![CDATA[假期记录]]></title>
-    <url>%2F2021%2F04%2F03%2F%E5%81%87%E6%9C%9F%E8%AE%B0%E5%BD%95%2F</url>
-    <content type="text"><![CDATA[Fabric相关1.查看当前Fabric版本 1git branch -a 2.切换Fabric版本 1git checkout release-2.1 3.查看go版本 1go version 4.进入文件夹启动测试网络 12cd fabric-samples/test-networksudo ./network.sh up 更新docker-compose 12sudo curl -L "https://get.daocloud.io/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-composesudo chmod +x /usr/local/bin/docker-compose IPFS相关1.下载go-ipfs安装包 2.解压命令 1tar xvfz go-ipfs_v0.6.0_linux-amd64.tar.gz 3.初始化ipfs 1ipfs init 4.查看本机id 1ipfs id 5.启动IPFS查看可视化页面 1ipfs daemon 6.访问页面 1http://127.0.0.1:5001/webui 在IPFS中发布动态内容1.新建内容文件 2.使用ipfs name publish 命令挂载目标文件 其中 QmU…为节点id 3.使用命令 ipfs name resolve绑定节点ID信息 4.查看文件信息 5.修改文件信息 6.挂载并绑定节点ID 7.实现动态绑定 优化Git分布式服务1.初始化Git仓库 2.利用git update-server-info命令确保仓库能被复制和使用 3.将较大的pack file分解成单独对象，以便Git仓库存在多分支版本时，也能一一被IPFS网络识别添加 4.将ipfs-md-wiki.git添加到本地的IPFS文件仓库中 12ipfs daemon //启动IPFS网络ipfs add -r .// 添加文件 添加成功 CID为Qmaw62g9XSdZ9cZtm79kQAZEmB1xCxBTEJckq7k8ESfamY 5.搭建另一个IPFS节点 1IPFS_PATH=~/.ipfs2 ipfs init 进入~/.ipfs2/config 修改Address 6.启动节点 1IPFS_PATH=~/.ipfs2 ipfs daemon &amp; （访问http://127.0.0.1:5002/webui可查看） 7.将文件通过新节点pin add 8.通过命令根据文件CID查看节点信息 1ipfs dht findprovs Qmaw62g9XSdZ9cZtm79kQAZEmB1xCxBTEJckq7k8ESfamY]]></content>
+<search> 
+  
+  
+    
+    <entry>
+      <title>假期记录</title>
+      <link href="/2021/04/03/%E5%81%87%E6%9C%9F%E8%AE%B0%E5%BD%95/"/>
+      <url>/2021/04/03/%E5%81%87%E6%9C%9F%E8%AE%B0%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script><h1 id="Fabric相关"><a href="#Fabric相关" class="headerlink" title="Fabric相关"></a>Fabric相关</h1><p>1.查看当前Fabric版本 </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -a</span><br></pre></td></tr></table></figure><p>2.切换Fabric版本</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout release-2.1</span><br></pre></td></tr></table></figure><p>3.查看go版本</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go version</span><br></pre></td></tr></table></figure><p>4.进入文件夹启动测试网络</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd fabric-samples/test-network</span><br><span class="line">sudo ./network.sh up</span><br></pre></td></tr></table></figure><p>更新docker-compose</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L <span class="string">"https://get.daocloud.io/docker/compose/releases/download/1.28.5/docker-compose-<span class="variable">$(uname -s)</span>-<span class="variable">$(uname -m)</span>"</span> -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br><span class="line">sudo chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure><h1 id="IPFS相关"><a href="#IPFS相关" class="headerlink" title="IPFS相关"></a>IPFS相关</h1><p>1.下载<a href="https://github.com/ipfs/go-ipfs" target="_blank" rel="noopener">go-ipfs安装包</a></p><p>2.解压命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvfz go-ipfs_v0.6.0_linux-amd64.tar.gz</span><br></pre></td></tr></table></figure><p>3.初始化ipfs</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipfs init</span><br></pre></td></tr></table></figure><p>4.查看本机id</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipfs id</span><br></pre></td></tr></table></figure><p>5.启动IPFS查看可视化页面</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipfs daemon</span><br></pre></td></tr></table></figure><p>6.访问页面</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1:5001/webui</span><br></pre></td></tr></table></figure><p><a href="https://imgtu.com/i/cnZxjP" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/04/03/cnZxjP.png" alt="cnZxjP.png"></a></p><h1 id="在IPFS中发布动态内容"><a href="#在IPFS中发布动态内容" class="headerlink" title="在IPFS中发布动态内容"></a>在IPFS中发布动态内容</h1><p>1.新建内容文件</p><p><a href="https://imgtu.com/i/cnKXO1" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/04/03/cnKXO1.md.png" alt="cnKXO1.md.png"></a></p><p>2.使用ipfs name publish 命令挂载目标文件</p><p><a href="https://imgtu.com/i/cnMk6A" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/04/03/cnMk6A.md.png" alt="cnMk6A.md.png"></a></p><p>其中 QmU…为节点id</p><p><a href="https://imgtu.com/i/cnMJ00" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/04/03/cnMJ00.md.png" alt="cnMJ00.md.png"></a></p><p>3.使用命令 ipfs name resolve绑定节点ID信息</p><p><a href="https://imgtu.com/i/cnMY7V" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/04/03/cnMY7V.md.png" alt="cnMY7V.md.png"></a></p><p>4.查看文件信息</p><p><a href="https://imgtu.com/i/cnMwp4" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/04/03/cnMwp4.md.png" alt="cnMwp4.md.png"></a></p><p>5.修改文件信息</p><p><a href="https://imgtu.com/i/cnM01J" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/04/03/cnM01J.md.png" alt="cnM01J.md.png"></a></p><p>6.挂载并绑定节点ID</p><p><a href="https://imgtu.com/i/cnMgAK" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/04/03/cnMgAK.md.png" alt="cnMgAK.md.png"></a></p><p>7.实现动态绑定</p><p><a href="https://imgtu.com/i/cnMRhD" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/04/03/cnMRhD.png" alt="cnMRhD.png"></a></p><h1 id="优化Git分布式服务"><a href="#优化Git分布式服务" class="headerlink" title="优化Git分布式服务"></a>优化Git分布式服务</h1><p>1.初始化Git仓库</p><p><a href="https://imgtu.com/i/cnM4cd" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/04/03/cnM4cd.png" alt="cnM4cd.png"></a></p><p>2.利用git update-server-info命令确保仓库能被复制和使用</p><p><a href="https://imgtu.com/i/cnMTBt" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/04/03/cnMTBt.png" alt="cnMTBt.png"></a></p><p>3.将较大的pack file分解成单独对象，以便Git仓库存在多分支版本时，也能一一被IPFS网络识别添加</p><p><a href="https://imgtu.com/i/cnML4S" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/04/03/cnML4S.png" alt="cnML4S.png"></a></p><p>4.将ipfs-md-wiki.git添加到本地的IPFS文件仓库中</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ipfs daemon  //启动IPFS网络</span><br><span class="line">ipfs add -r .// 添加文件</span><br></pre></td></tr></table></figure><p><a href="https://imgtu.com/i/cnQpBq" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/04/03/cnQpBq.png" alt="cnQpBq.png"></a></p><p>添加成功 CID为Qmaw62g9XSdZ9cZtm79kQAZEmB1xCxBTEJckq7k8ESfamY</p><p>5.搭建另一个IPFS节点</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IPFS_PATH=~/.ipfs2 ipfs init</span><br></pre></td></tr></table></figure><p>进入~/.ipfs2/config 修改Address</p><p><a href="https://imgtu.com/i/cnQ9H0" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/04/03/cnQ9H0.png" alt="cnQ9H0.png"></a></p><p>6.启动节点</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IPFS_PATH=~/.ipfs2 ipfs daemon &amp;</span><br></pre></td></tr></table></figure><p>（访问<a href="http://127.0.0.1:5002/webui可查看）" target="_blank" rel="noopener">http://127.0.0.1:5002/webui可查看）</a></p><p>7.将文件通过新节点pin add</p><p><a href="https://imgtu.com/i/cnQPEV" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/04/03/cnQPEV.png" alt="cnQPEV.png"></a></p><p>8.通过命令根据文件CID查看节点信息</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipfs dht findprovs  Qmaw62g9XSdZ9cZtm79kQAZEmB1xCxBTEJckq7k8ESfamY</span><br></pre></td></tr></table></figure><p><a href="https://imgtu.com/i/cnQF4U" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/04/03/cnQF4U.png" alt="cnQF4U.png"></a></p>]]></content>
+      
+      
       <categories>
-        <category>研究生毕业设计</category>
+          
+          <category> 研究生毕业设计 </category>
+          
       </categories>
-      <tags>
-        <tag>实践记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[git仓库从http转为ssh]]></title>
-    <url>%2F2019%2F12%2F04%2Fgit%E4%BB%93%E5%BA%93%E4%BB%8Ehttp%E8%BD%AC%E4%B8%BAssh%2F</url>
-    <content type="text"><![CDATA[https://blog.csdn.net/xl_1851252/article/details/81274721]]></content>
+      
+      
+        <tags>
+            
+            <tag> 实践记录 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>git仓库从http转为ssh</title>
+      <link href="/2019/12/04/git%E4%BB%93%E5%BA%93%E4%BB%8Ehttp%E8%BD%AC%E4%B8%BAssh/"/>
+      <url>/2019/12/04/git%E4%BB%93%E5%BA%93%E4%BB%8Ehttp%E8%BD%AC%E4%B8%BAssh/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script><p> <a href="https://blog.csdn.net/xl_1851252/article/details/81274721" target="_blank" rel="noopener">https://blog.csdn.net/xl_1851252/article/details/81274721</a> </p>]]></content>
+      
+      
       <categories>
-        <category>git使用</category>
+          
+          <category> git使用 </category>
+          
       </categories>
-      <tags>
-        <tag>技巧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[git配置ssh]]></title>
-    <url>%2F2019%2F12%2F04%2Fgit%E9%85%8D%E7%BD%AEssh%2F</url>
-    <content type="text"><![CDATA[https://blog.csdn.net/ShuTongIt/article/details/89165054]]></content>
+      
+      
+        <tags>
+            
+            <tag> 技巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>git配置ssh</title>
+      <link href="/2019/12/04/git%E9%85%8D%E7%BD%AEssh/"/>
+      <url>/2019/12/04/git%E9%85%8D%E7%BD%AEssh/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script><p> <a href="https://blog.csdn.net/ShuTongIt/article/details/89165054" target="_blank" rel="noopener">https://blog.csdn.net/ShuTongIt/article/details/89165054</a> </p>]]></content>
+      
+      
       <categories>
-        <category>git使用</category>
+          
+          <category> git使用 </category>
+          
       </categories>
-      <tags>
-        <tag>技巧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[test..]]></title>
-    <url>%2F2019%2F11%2F13%2Ftest%2F</url>
-    <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[第三讲]]></title>
-    <url>%2F2019%2F11%2F13%2F%E7%AC%AC%E4%B8%89%E8%AE%B2%2F</url>
-    <content type="text"><![CDATA[Fabric 1.4 LTS概述Fabric是联盟链、许可链(Permissioned) 许可：谁可以跑这个节点，谁可以提交一个交易，谁可以看到你的数据，谁可以出块，你的身份是否公布 Fabric的特点： 许可链 模块化（orderer、peer、client) 多语言的智能合约（go,java,js,c) Fabric在orderer中的共识是可插拔的，可被替代 隐私性 没有“挖矿” 执行—排序—验证 Hyperledger Fabric架构概览 交易处理流程 数据隔离 背书策略 Fabric交易流程 Everything behind `sender_balance -=10; receiver_balance+=10; Committing Peer(记账节点):把交易写入账本，并且更新workstate,提交事务，可持有智能合约（链码） Endorsing Peer(背书节点):执行智能合约，对结果进行签名 Ordering Node(排序节点)：把所有的交易按顺序打包成区块，并返还给Committing Peer 第一步：Propose 通过sdk或命令行的形式，把Propose（一个交易）发送到E，即Endorsing Peer中，（发给哪个背书节点是由背书策略所决定的）Endorsing Peer接收到了交易请求，它会把交易放在一个智能合约中运行。（发送的Propose一定是瞄向一个智能合约的）运行的逻辑是先查看发送者的balance，看看它够不够十块钱，是否能转等一系列问题（业务逻辑、源代码等）。 第二步：Execute 运行时不会修改账本，会产生一个读写集， 读集是原本的账户的余额，写集是修改后的余额。 发送方读集(key：balance,value:100,version:1) 写集（key：balance,value:90,version:2） 接收方读集(key：balance,value:80,version:1) 写集（key：balance,value:90,version:2） 第三步：Proposal Response 产生读写集以后，Endorsing Peer会对读写集进行背书，即签名，签名之后返还给请求方sdk或Client 第四步：Order Transaction 请求方接收后会发送给Ordering Node(排序节点)，Ordering-Service对交易进行排序，并按一定的规则打包成块 第五步：Deliver 之后Ordering-Service会把块分发给Leader节点进行验证 第六步：Validate Leader节点会将块打开，检查验证交易，是否签名，读写集的版本号是否有问题,若没有问题，则写入账本，并且Leader节点会同步广播给同频道组织内的其他节点 第七步：Notify 返回交易的结果信息 数据隔离Clannel(通道) 两个Clannel之间没有逻辑上的关联，都是独立的 system channel是fabric启用时就有的一个内建的channel,当创建一个channel时，相当于向system channel发送了一个transaction(交易)，其中包含了创建channel的一些属性，当共识达成之后，会创建channel A组织在channelA、B中，B组织在channelA、B、C中，C组织在channelB、C中，当AB组织在channelA中交易时，C无法知道，保证了数据隔离。当创建了channel后需要部署智能合约，Fabric的智能合约作用范围只在channel中， 智能合约mycc 等 一个channel中可部署多个智能合约 背书策略 AND A和B必须都签名才能通过 OR OutOf（1，B,C)B和C其中一个签名即可 应用开发搭建测试网络]]></content>
+      
+      
+        <tags>
+            
+            <tag> 技巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>test..</title>
+      <link href="/2019/11/13/test/"/>
+      <url>/2019/11/13/test/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第三讲</title>
+      <link href="/2019/11/13/%E7%AC%AC%E4%B8%89%E8%AE%B2/"/>
+      <url>/2019/11/13/%E7%AC%AC%E4%B8%89%E8%AE%B2/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script><h1 id="Fabric-1-4-LTS概述"><a href="#Fabric-1-4-LTS概述" class="headerlink" title="Fabric 1.4 LTS概述"></a>Fabric 1.4 LTS概述</h1><p>Fabric是联盟链、许可链(Permissioned)</p><p><strong>许可：</strong>谁可以跑这个节点，谁可以提交一个交易，谁可以看到你的数据，谁可以出块，你的身份是否公布</p><p><strong>Fabric的特点</strong>：</p><ul><li>许可链</li><li>模块化（orderer、peer、client)</li><li>多语言的智能合约（go,java,js,c)</li><li>Fabric在orderer中的共识是可插拔的，可被替代</li><li>隐私性</li><li>没有“挖矿”</li><li>执行—排序—验证</li></ul><h2 id="Hyperledger-Fabric架构概览"><a href="#Hyperledger-Fabric架构概览" class="headerlink" title="Hyperledger  Fabric架构概览"></a>Hyperledger  Fabric架构概览</h2><ul><li>交易处理流程</li><li>数据隔离</li><li>背书策略</li></ul><h4 id="Fabric交易流程"><a href="#Fabric交易流程" class="headerlink" title="Fabric交易流程"></a><strong>Fabric交易流程</strong></h4><p><img src="https://s2.ax1x.com/2019/10/18/KZxowD.png" alt="KZxowD.png"></p><p>Everything behind `sender_balance -=10; receiver_balance+=10;</p><p><strong>Committing Peer(记账节点):</strong>把交易写入账本，并且更新workstate,提交事务，可持有智能合约（链码）</p><p><strong>Endorsing Peer(背书节点):</strong>执行智能合约，对结果进行签名</p><p><strong>Ordering Node(排序节点)：</strong>把所有的交易按顺序打包成区块，并返还给<strong>Committing Peer</strong></p><p><strong>第一步：Propose</strong></p><p><a href="https://imgchr.com/i/KVYZm6" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/10/18/KVYZm6.jpg" alt="KVYZm6.jpg"></a></p><p>通过sdk或命令行的形式，把Propose（一个交易）发送到E，即Endorsing Peer中，（<strong>发给哪个背书节点是由背书策略所决定的</strong>）Endorsing Peer接收到了交易请求，它会把交易放在一个智能合约中运行。（发送的Propose一定是瞄向一个智能合约的）运行的逻辑是先查看发送者的balance，看看它够不够十块钱，是否能转等一系列问题（业务逻辑、源代码等）。</p><p><strong>第二步：Execute</strong></p><p><img src="https://s2.ax1x.com/2019/10/18/KVdxmR.jpg" alt="KVdxmR.jpg"></p><p>运行时不会修改账本，会产生一个读写集， 读集是原本的账户的余额，写集是修改后的余额。</p><p>发送方读集(key：balance,value:100,version:1) 写集（key：balance,value:90,version:2）</p><p>接收方读集(key：balance,value:80,version:1) 写集（key：balance,value:90,version:2）</p><p><strong>第三步：Proposal Response</strong></p><p><img src="https://s2.ax1x.com/2019/10/18/KZatX9.png" alt="KZatX9.png"></p><p>产生读写集以后，<strong>Endorsing Peer</strong>会对读写集进行背书，即<strong>签名</strong>，签名之后返还给请求方sdk或Client</p><p><strong>第四步：Order Transaction</strong></p><p><img src="https://s2.ax1x.com/2019/10/18/KZw0zD.png" alt="KZw0zD.png"></p><p>请求方接收后会发送给<strong>Ordering Node(排序节点)</strong>，Ordering-Service对交易进行<strong>排序</strong>，并按一定的规则打包成块</p><p><strong>第五步：Deliver</strong></p><p><img src="https://s2.ax1x.com/2019/10/18/KZrW7j.png" alt="KZrW7j.png"></p><p>之后<strong>Ordering-Service</strong>会把块分发给<strong>Leader节点</strong>进行验证</p><p><strong>第六步：Validate</strong></p><p><img src="https://s2.ax1x.com/2019/10/18/KZyDQf.png" alt="KZyDQf.png"></p><p><strong>Leader节点</strong>会将块打开，检查验证交易，是否签名，读写集的版本号是否有问题,若没有问题，则写入账本，并且<strong>Leader节点</strong>会同步广播给同频道组织内的其他节点</p><p><strong>第七步：Notify</strong></p><p><img src="https://s2.ax1x.com/2019/10/18/KZ6YcV.png" alt="KZ6YcV.png"></p><p>返回交易的结果信息</p><h4 id="数据隔离"><a href="#数据隔离" class="headerlink" title="数据隔离"></a><strong>数据隔离</strong></h4><p>Clannel(通道)</p><p>两个Clannel之间没有逻辑上的关联，都是独立的</p><p>system channel是fabric启用时就有的一个内建的channel,当创建一个channel时，相当于向system channel发送了一个transaction(交易)，其中包含了创建channel的一些属性，当共识达成之后，会创建channel</p><p><img src="https://s2.ax1x.com/2019/10/18/KZ4I6s.png" alt="KZ4I6s.png"></p><p>A组织在channelA、B中，B组织在channelA、B、C中，C组织在channelB、C中，当AB组织在channelA中交易时，C无法知道，保证了数据隔离。当创建了channel后需要部署智能合约，Fabric的智能合约作用范围只在channel中，</p><p><img src="https://s2.ax1x.com/2019/10/18/KZ7NGT.png" alt="KZ7NGT.png"></p><p>智能合约mycc 等</p><p>一个channel中可部署多个智能合约</p><p><strong>背书策略</strong></p><p>AND  A和B必须都签名才能通过</p><p>OR </p><p>OutOf（1，B,C)B和C其中一个签名即可</p><h2 id="应用开发"><a href="#应用开发" class="headerlink" title="应用开发"></a>应用开发</h2><h2 id="搭建测试网络"><a href="#搭建测试网络" class="headerlink" title="搭建测试网络"></a>搭建测试网络</h2>]]></content>
+      
+      
       <categories>
-        <category>区块链</category>
+          
+          <category> 区块链 </category>
+          
       </categories>
-      <tags>
-        <tag>超级账本Fabric v1.4 LTS系列课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[第二讲]]></title>
-    <url>%2F2019%2F11%2F13%2F%E7%AC%AC%E4%BA%8C%E8%AE%B2%2F</url>
-    <content type="text"><![CDATA[Hyperledger 项目概览 社区介绍Hyperledger Projects 最早创建于2015年12月17日 一 Hyperledger Fabric 项目开源于2015年12月，由IBM以及DAH提出，使用golang语言编程，定位：建立分布式账本的框架，形成的是一个P2P的网络, 上面是共识层，分布式账本，链码 Hyperledger Fabric SDK四种语言实现：Node.js、Python、Java、Golang 二 Hyperledger Sawtooth 三 Hyperledger Iroha 四 Hyperledger Explorer 五 Hyperledger Cello 六 Hyperledger Indy 七 Hyperledger Composer 八 Hyperledger Burrow 九 Hyperledger Quilt 十 Hyperledger Caliper 十一 Hyperledger Usra 十二 Hyperledger Grid]]></content>
+      
+      
+        <tags>
+            
+            <tag> 超级账本Fabric v1.4 LTS系列课程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第二讲</title>
+      <link href="/2019/11/13/%E7%AC%AC%E4%BA%8C%E8%AE%B2/"/>
+      <url>/2019/11/13/%E7%AC%AC%E4%BA%8C%E8%AE%B2/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script><h1 id="Hyperledger-项目概览-社区介绍"><a href="#Hyperledger-项目概览-社区介绍" class="headerlink" title="Hyperledger 项目概览 社区介绍"></a>Hyperledger 项目概览 社区介绍</h1><p>Hyperledger Projects 最早创建于2015年12月17日</p><p><strong>一</strong></p><p>Hyperledger Fabric 项目开源于2015年12月，由IBM以及DAH提出，使用golang语言编程，定位：建立分布式账本的框架，形成的是一个P2P的网络,</p><p>上面是共识层，分布式账本，链码</p><p><img src="https://s2.ax1x.com/2019/10/16/KFYDfI.png" alt="KFYDfI.png"></p><p>Hyperledger Fabric SDK四种语言实现：Node.js、Python、Java、Golang</p><p><strong>二</strong></p><p>Hyperledger Sawtooth</p><p><strong>三</strong></p><p>Hyperledger Iroha</p><p><strong>四</strong></p><p>Hyperledger Explorer</p><p><strong>五</strong></p><p>Hyperledger Cello</p><p><strong>六</strong></p><p>Hyperledger Indy</p><p><strong>七</strong></p><p>Hyperledger Composer</p><p><strong>八</strong></p><p>Hyperledger Burrow</p><p><strong>九</strong></p><p>Hyperledger Quilt</p><p><strong>十</strong></p><p>Hyperledger Caliper</p><p><strong>十一</strong></p><p>Hyperledger Usra</p><p><strong>十二</strong></p><p>Hyperledger Grid</p>]]></content>
+      
+      
       <categories>
-        <category>区块链</category>
+          
+          <category> 区块链 </category>
+          
       </categories>
-      <tags>
-        <tag>超级账本Fabric v1.4 LTS系列课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[第一讲]]></title>
-    <url>%2F2019%2F10%2F16%2F%E7%AC%AC%E4%B8%80%E8%AE%B2%2F</url>
-    <content type="text"><![CDATA[​ 区块链有一种划分是链圈和币圈。 链圈更多的是区块链技术，与企业应用结合，给产业附能。币圈是为了发行数字代币。 ​ 区块链理论分布式公开交易账簿 ​ 智能合约（Hyperiedger,Ethereum)基于区块链的图灵完备的编程脚本语言，适合各种区块链数据结构和共识协议 ​ “区块链+” ​ 垂直领域场景有“区块链+金融”，“区块链+食品安全”，“区块链+公共服务” ​ 水平拓展板块有“区块链+物联网”，“区块链+边缘计算”，“区块链+人工智能”]]></content>
+      
+      
+        <tags>
+            
+            <tag> 超级账本Fabric v1.4 LTS系列课程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第一讲</title>
+      <link href="/2019/10/16/%E7%AC%AC%E4%B8%80%E8%AE%B2/"/>
+      <url>/2019/10/16/%E7%AC%AC%E4%B8%80%E8%AE%B2/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script><p>​        区块链有一种划分是<strong>链圈</strong>和<strong>币圈</strong>。 链圈更多的是区块链技术，与企业应用结合，给产业附能。币圈是为了发行数字代币。</p><p>​        <strong>区块链理论</strong>分布式公开交易账簿</p><p>​        <strong>智能合约</strong>（Hyperiedger,Ethereum)基于区块链的图灵完备的编程脚本语言，适合各种区块链数据结构和共识协议</p><p>​        <strong>“区块链+”</strong></p><p>​            垂直领域场景有“区块链+金融”，“区块链+食品安全”，“区块链+公共服务”    </p><p>​            水平拓展板块有“区块链+物联网”，“区块链+边缘计算”，“区块链+人工智能”</p>]]></content>
+      
+      
       <categories>
-        <category>区块链</category>
+          
+          <category> 区块链 </category>
+          
       </categories>
-      <tags>
-        <tag>超级账本Fabric v1.4 LTS系列课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Go语言]]></title>
-    <url>%2F2019%2F10%2F15%2FGo%E8%AF%AD%E8%A8%80%2F</url>
-    <content type="text"><![CDATA[1234import &quot;fmt&quot;fuc main()&#123; fmt.Println(&quot;人生苦短，Let&apos;s Go!&quot;)&#125; Go语言”奇怪用法“有哪些？1，go的变量声明顺序是：”先写变量名，再写类型名“，此与C/C++的语法孰优孰劣，可见下文解释：http://blog.golang.org/gos-declaration-syntax 2，go是通过package来组织的（与python类似），只有package名为main的包可以包含main函数，一个可执行程序有且仅有一个main包，通过import关键字来导入其他非main包。 3，可见性规则。go语言中，使用大小写来决定该常量、变量、类型、接口、结构或函数是否可以被外部包含调用。根据约定，函数名首字母小写即为private，函数名首字母大写即为public。 4，go内置关键字（25个均为小写）。 5，函数不用先声明，即可使用。 6，在函数内部可以通过 := 隐士定义变量。（函数外必须显示使用var定义变量） 7，go程序使用UTF-8编码的纯Unicode文本编写。 8，使用big.Int的陷阱：http://stackoverflow.com/questions/11270547/go-big-int-factorial-with-recursion 9，从技术层面讲，go语言的语句是以分号分隔的，但这些是由编译器自动添加的，不用手动输入，除非需要在同一行中写入多个语句。没有分号及只需少量的逗号和圆括号，使得go语言的程序更容易阅读。 10，go语言只有一个循环结构——for循环。 11，go里的自增运算符只有——“后++” 12，go语言中的slice用法类似python中数组，关于slice的详细用法可见：http://blog.golang.org/go-slices-usage-and-internals 13，函数也是一个值，使用匿名函数返回一个值。 14，函数闭包的使用，闭包是一个匿名函数值，会引用到其外部的变量。]]></content>
-      <tags>
-        <tag>go语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[typora 的使用方法]]></title>
-    <url>%2F2019%2F09%2F21%2Ftypora-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[标题 123456# 一阶标题 或者快捷键Ctrl+1## 二阶标题 或者快捷键Ctrl+2### 三阶标题 或者快捷键Ctrl+3#### 四阶标题 或者快捷键Ctrl+4##### 五阶标题 或者快捷键Ctrl+5###### 六阶标题 或者快捷键Ctrl+6 下划线 1&lt;u&gt;下划线的内容&lt;/u&gt; 或按快捷键Ctrl+U 字体加粗 1**加粗内容** 或按快捷键Ctrl+B 斜体 1*倾斜内容* 或按快捷键Ctrl+I 文字高亮 1==我是最重要的== 角标 1x^2^ H~2~O 文本居中 1&lt;center&gt;这是要居中的文本内容&lt;/center&gt; 有序 1数字+英文小数点(.)+空格 无序 1+ 、- 、* 创建无序列，任意数字开始+空格创建有序列表 Todolist 12- [ ] 参加会议- [x] 中超足球赛 Table 1快捷键Ctrl+T弹出对话框 分割线 12***+回车 ---+回车 图片 123![图片内容](http://t10.baidu.com/it/u=1069603383,3074552113&amp;fm=170&amp;s=771B15C75C12D8D61C3C69FB0300501F&amp;w=640&amp;h=426&amp;img.JPEG)也可使用快捷键Ctrl+KPS：也可将图片直接拖拽进来，自动生成链接 链接 1[百度一下，你就知道](https://www.baidu.com/) 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556[百度一下，你就知道][]https://www.baidu.com/ # 第二个括号内可任意填写(不显)```[百度一下，你就知道][]https://www.baidu.com/快速链接```&lt;http://www.baidu.com&gt;PS：按住Ctrl点击链接可直接打开。```#数学公式（简）```Typora支持加入用LaTeX写成的数学公式，并且在软件界面下用MathJax直接渲染。```*1.行内公式(inline math)，可以在偏好设置中单独打开，由一个美元符号将公式围起来；name=\prod \frac&#123;1&#125;&#123;i^2&#125;$*2.行外公式，直接按Ctrl+Shift+M；(双$+回车也可做到)```注：上标和下标可以使用数学表达式来获取```#其余引用```&gt;+空格 或按快捷键Ctrl+Shift+Q```注释要添加注释的文字```这是我们的标号[^1][^1]:标号的含义```表情```:单词:```目录```[TOC]```Typora快捷键整合```Ctrl+1 一阶标题 Ctrl+B 字体加粗Ctrl+2 二阶标题 Ctrl+I 字体倾斜Ctrl+3 三阶标题 Ctrl+U 下划线Ctrl+4 四阶标题 Ctrl+Home 返回Typora顶部Ctrl+5 五阶标题 Ctrl+End 返回Typora底部Ctrl+6 六阶标题 Ctrl+T 创建表格Ctrl+L 选中某句话 Ctrl+K 创建超链接Ctrl+D 选中某个单词 Ctrl+F 搜索Ctrl+E 选中相同格式的文字 Ctrl+H 搜索并替换Alt+Shift+5 删除线 Ctrl+Shift+I 插入图片Ctrl+Shift+M 公式块 Ctrl+Shift+Q 引用注：一些实体符号需要在实体符号之前加”\”才能够显示```]]></content>
-      <tags>
-        <tag>技巧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[英语课]]></title>
-    <url>%2F2019%2F09%2F17%2F%E8%8B%B1%E8%AF%AD%E8%AF%BE%2F</url>
-    <content type="text"><![CDATA[Paper Submission RequirementsThe SIGCOMM 2015 conference seeks papers describing significant research contributions to the field of computer and data communication networks. Paper submissions typically report novel results firmly substantiated by experimentation, simulation, or analysis. As an aid to the community, the SIGCOMM web site provides useful advice to authors planning to submit to SIGCOMM conferences. Papers published in previous SIGCOMM conferences also serve as excellent examples of anticipated scope, rigor, and length.To submit papers to the SIGCOMM 2015 conference, first carefully read the following sections on:• Experience track (NEW for 2015): a track focused on deployment experience, to which authors may opt to submit. Note that based on the preference authors express at submission time, each submission will only be considered for either the “main” conference track or the experience track, but not both.• Ethics considerations (NEW for 2015): the conference’s ethics expectations.• Paper registration: what to register, and how to determine TPC conflicts.• Paper novelty: what is eligible to be submitted, including policies on prior papers at a workshop.• Paper anonymity: how to prepare for anonymous submission.• Paper formatting: how to format your paper, including LaTeX and Word templates.• Paper acceptance: what to expect if your paper is accepted.Then use the paper submission site to:• Register your paper by 19:59 Greenwich Mean Time (GMT), January 23, 2015.• Submit your paper by 19:59 Greenwich Mean Time (GMT), January 30, 2015.These are hard deadlines and no extensions will be given.The information on this page is intentionally comprehensive. There are a few changes in 2015, such that both new authors and veteran authors are urged to read through this page in its entirety. Our goal is to ensure that all authors have a consistent understanding of the submission process, and that everyone complies with the process fairly. If you have any questions about submitting papers to SIGCOMM 2015, or encounter problems with the paper submission site, contact the PC chairs well before the deadlines.Experience Track (NEW for 2015)SIGCOMM 2015 will include a new track, the experience track, for experience papers on the design, analysis, and evaluation of techniques in commercial or otherwise widely used deployment. The PC will evaluate a submission to the experience track with the understanding that its contribution may lie predominantly in extending the community’s knowledge of how known techniques fare in realistic settings, and particularly in settings that most in the community cannot duplicate, for reasons of scale or otherwise. At paper registration time, authors must explicitly indicate if a submission is to be considered for the experience track. Each submission will only be considered for one track - either the experience track or the main conference track, but not both - in accordance with the authors’ preference expressed at submission time.Ethics Considerations (NEW for 2015)Authors must as part of the submission process attest that their work complies with all applicable ethical standards of their home institution(s), including, but not limited to privacy policies and policies on experiments involving humans. The PC takes a broad view of what constitutes an ethical concern, and authors agree to be available at any time during the review process to rapidly respond to queries from the PC chairs regarding ethical standards.Paper RegistrationRegistration only requires submission of paper metadata: paper title and abstract, author names, affiliations, contact email addresses, topics matching the subject matter of the paper, track (experience or main), and conflicts with PC members. The paper itself does not need to be submitted at the registration deadline. However, the paper title and abstract submitted during registration must be complete - not placeholders - and correctly characterize the paper that will be submitted. Authors can change the wording of their titles and abstracts for submission, but their essence should not fundamentally change. The PC will use the information provided during registration as a basis for making review assignments.Both authors and PC members provide PC conflict information. The PC will review paper conflicts to ensure the integrity of the reviewing process, adding conflicts where necessary. Broadly, we define conflict of interest with a PC member using the following principles: You are currently employed at the same institution, have been previously employed at the same institution within the last 12 months, or are going to begin employment within the next 6 months at the same institution. You have a professional partnership as follows:o Past or present association as thesis advisor or advisee.o Collaboration on a project, publication, or grant proposal within the past 2 years (i.e., 2013 or later).If there is no basis for PC conflicts provided by authors, those conflicts will be removed. In particular, do not improperly identify PC members as a conflict in an attempt to avoid having an individual review your paper.Paper NoveltyUnder no circumstances should authors submit previously published work, submit the same work simultaneously to multiple venues, or submit papers that plagiarize the work of other authors. Like other conferences and journals, SIGCOMM prohibits these practices and may take action against authors who have engaged in them. In some cases, the program committee may share information about submitted papers with other conference chairs and journal editors to ensure the integrity of papers under consideration. If the PC discovers a violation of these principles, sanctions may include, but are not limited to, contacting the institutions of the authors and publicizing the details of the case.SIGCOMM will review extended versions of previously-published short preliminary papers (such as workshop papers) in accordance with published SIGCOMM policy and the ACM Plagiarism Policy. To preserve author anonymity, authors MUST cite this related prior work, while making a good-faith effort not to reveal common authorship. For example, such a submission should not explicitly point out that specific text has been adopted from the author’s own prior work.Papers accompanied by nondisclosure agreement requests will not be considered for publication, nor ever disclosed.Paper AnonymityAll submitted papers will be judged based on their quality and relevance through double-blind reviewing, where the identities of the authors are withheld from the reviewers. As an author, you are required to make a good-faith effort to preserve the anonymity of your submission, while at the same time allowing the reader to fully grasp the context of related past work, including your own. Common sense and careful writing will go a long way towards preserving anonymity. Minimally, please take the following steps when preparing your submission:• Remove the names and affiliations of authors from the title page.• Remove acknowledgment of identifying names and funding sources.• Use care in naming your files. Source file names (e.g., “Alice-n-Bob.dvi”) are often embedded in the final output as readily accessible comments.• Use care in referring to related work, particularly your own. Do not omit references to provide anonymity, as this leaves the reviewer unable to grasp the context. Instead, reference your past work in the third person, just as you would any other piece of related work by another author.Paper FormattingAll submissions must obey the following formatting requirements. Your goal as an author is to produce a clearly readable submission within these constraints.Before final submission, you are expected to make sure that your paper complies with these requirements. Authors are strongly discouraged from violating the formatting requirements with the aim of including additional material: submissions that violate the formatting requirements may not be reviewed. You can visually inspect a page-by-page report of your paper format using the same tool as the submission system via a separate online form.After the submission deadline, we will use the same tool to check the conformance of papers. The format checking tool uses heuristics and can make mistakes. The PC chairs will manually inspect and possibly reject those papers with evident format violations. However, no paper will be rejected due to format violations without first being checked by hand.• Submit papers of no more than twelve (12) single-spaced pages, including figures, tables, any appendices, etc.followed by as many pages as necessary for references. Papers whose non-reference content is longer than 12 pages will not be reviewed. Note that this length specification is new in 2015, and differs from that in prior years.• Submit papers using a 10pt font on 12pt leading formatted for printing on Letter-sized (8.5” by 11”) paper. Paper text blocks must follow ACM guidelines: double-column, with each column 9.25” by 3.33”, 0.33” space between columns. Each column must contain no more than 55 lines of text. For submission, use the following LaTeX template or Word template to ensure compliance. Please do NOT use copies of these templates that you might find elsewhere since we cannot be sure that those are compliant.• Note that the final copy will be 14 pages using the ACM standard 10pt format. This style may result in more text than your submission so that you can adequately address reviewer and shepherd comments.• List the submission number and the number of pages in your paper in the author block, e.g., “Paper #N, 14 pages”, beneath your title. Registering your title, abstract, etc., will provide a paper submission number. Per the anonymity guidelines, remember to remove any author names.• Provide an abstract of no more than 200 words.• Number the pages.• Submit papers in PDF (Portable Document Format) and ensure that they are compatible with Adobe Acrobat (English version). Other formats, including Postscript, will not be accepted. Avoid using non-standard fonts. The PC must be able to display and print your submission exactly as we receive it using only standard tools and printers, so we strongly suggest that you use only standard fonts that are embedded in the PDF file.• Ensure that the paper prints well on black-and-white printers, not color printers. Pay particular attention to figures and graphs in the paper to ensure that they are legible without color. Explicitly using grayscale colors will provide best control over how graphs and figures will print on black-and-white printers.• Ensure that labels and symbols used in graphs and figures are legible, including the font sizes of tick marks, axis labels, legends, etc.• Limit the file size to less than 15 MB. Contact the PC chairs if you have a file larger than 15 MB.Paper AcceptanceThe SIGCOMM 2015 PC will notify authors of acceptance/rejection decisions by April 24, 2015. All accepted papers may be shepherded by members of the PC. Authors of accepted papers should plan to interact with their shepherds immediately after notification, and to budget sufficient time between acceptance notification and the camera-ready deadline to coordinate with their shepherd. It is a requirement that the paper be considered acceptable to the assigned shepherd so that the updates to the paper reflect the issues raised by the PC (conflicts will be mediated by the PC chairs) before the paper is considered “accepted” to appear in the conference proceedings. In addition, the publisher of the SIGCOMM proceedings will review all accepted papers submitted for the camera-ready deadline. Authors should also budget sufficient time immediately after the camera-ready deadline to be available and responsive to any editing changes requested by the publisher after submitting their camera-ready paper.After acceptance, substantive changes to paper titles require approval by the PC chairs. Only in exceptional circumstances should authors change their author list, and only with the approval of the PC chairs.Authors of accepted papers will also need to sign an ACM copyright release form. Electronic copies of the camera-ready papers will be published on the conference Web site before the conference, unless authors specifically request otherwise. All rejected papers will be treated as permanently confidential.]]></content>
-      <tags>
-        <tag>课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[hexo文章格式]]></title>
-    <url>%2F2019%2F09%2F10%2Fhexo%E6%96%87%E7%AB%A0%E6%A0%BC%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[输入密码，查看文章。 Incorrect Password! No content to display! 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]]></content>
-      <tags>
-        <tag>技巧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[MarkDown基本语法]]></title>
-    <url>%2F2019%2F09%2F10%2FMarkDown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[点击查看 12345678910111213Markdown中，以下字符支持使用反斜线转义：\ 反斜线` 反引号* 星号_ 下划线&#123;&#125; 大括号[] 中括号() 小括号# 井号+ 加号- 减号（连字符）. 句点! 感叹号]]></content>
-      <tags>
-        <tag>技巧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[List数组转换JSON格式]]></title>
-    <url>%2F2019%2F07%2F12%2FList%E6%95%B0%E7%BB%84%E8%BD%AC%E6%8D%A2JSON%E6%A0%BC%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[List数组转换JSON格式]]></content>
-      <tags>
-        <tag>技巧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[如何添加params,并且在页面取值]]></title>
-    <url>%2F2019%2F07%2F12%2F%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0params-%E5%B9%B6%E4%B8%94%E5%9C%A8%E9%A1%B5%E9%9D%A2%E5%8F%96%E5%80%BC%2F</url>
-    <content type="text"><![CDATA[struts2的@Result annotation 如何添加params,并且在页面取值]]></content>
-      <tags>
-        <tag>技巧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[struts2注解总结----@Action和@Result]]></title>
-    <url>%2F2019%2F07%2F12%2Fstruts2%E6%B3%A8%E8%A7%A3%E6%80%BB%E7%BB%93-Action%E5%92%8C-Result%2F</url>
-    <content type="text"><![CDATA[点击查看]]></content>
-      <tags>
-        <tag>技巧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[向前]]></title>
-    <url>%2F2019%2F07%2F07%2F%E5%90%91%E5%89%8D%2F</url>
-    <content type="text"><![CDATA[昨天已经成为遥远的回忆，今天太阳已经升起。在暖暖的阳光下，我们不畏家境的贫困，我们不惧生活的压力。我们会依然顽强坚毅，我们会仍旧拼搏努力，我们会继续好好学习，有你们与我们同在，明天我们一定会让爱之虹绽放出更加灿烂的彩虹，永不服输。]]></content>
+      
+      
+        <tags>
+            
+            <tag> 超级账本Fabric v1.4 LTS系列课程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Go语言</title>
+      <link href="/2019/10/15/Go%E8%AF%AD%E8%A8%80/"/>
+      <url>/2019/10/15/Go%E8%AF%AD%E8%A8%80/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import  &quot;fmt&quot;</span><br><span class="line">fuc main()&#123;</span><br><span class="line">    fmt.Println(&quot;人生苦短，Let&apos;s Go!&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="Go语言”奇怪用法“有哪些？"><a href="#Go语言”奇怪用法“有哪些？" class="headerlink" title="Go语言”奇怪用法“有哪些？"></a>Go语言”奇怪用法“有哪些？</h2><p>1，go的变量声明顺序是：”先写变量名，再写类型名“，此与C/C++的语法孰优孰劣，可见下文解释：<br><a href="http://blog.golang.org/gos-declaration-syntax" target="_blank" rel="noopener">http://blog.golang.org/gos-declaration-syntax</a></p><p>2，go是通过package来组织的（与python类似），只有package名为main的包可以包含main函数，一个可执行程序有且仅有一个main包，通过import关键字来导入其他非main包。</p><p>3，可见性规则。go语言中，使用大小写来决定该常量、变量、类型、接口、结构或函数是否可以被外部包含调用。根据约定，函数名首字母小写即为private，函数名首字母大写即为public。</p><p>4，go内置关键字（25个均为小写）。</p><p>5，函数不用先声明，即可使用。</p><p>6，在函数内部可以通过 := 隐士定义变量。（函数外必须显示使用var定义变量）</p><p>7，go程序使用UTF-8编码的纯Unicode文本编写。</p><p>8，使用big.Int的陷阱：<br><a href="http://stackoverflow.com/questions/11270547/go-big-int-factorial-with-recursion" target="_blank" rel="noopener">http://stackoverflow.com/questions/11270547/go-big-int-factorial-with-recursion</a></p><p>9，从技术层面讲，go语言的语句是以分号分隔的，但这些是由编译器自动添加的，不用手动输入，除非需要在同一行中写入多个语句。没有分号及只需少量的逗号和圆括号，使得go语言的程序更容易阅读。</p><p>10，go语言只有一个循环结构——for循环。</p><p>11，go里的自增运算符只有——“后++”</p><p>12，go语言中的slice用法类似python中数组，关于slice的详细用法可见：<a href="http://blog.golang.org/go-slices-usage-and-internals" target="_blank" rel="noopener">http://blog.golang.org/go-slices-usage-and-internals</a></p><p>13，函数也是一个值，使用匿名函数返回一个值。</p><p>14，函数闭包的使用，闭包是一个匿名函数值，会引用到其外部的变量。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> go语言 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>typora 的使用方法</title>
+      <link href="/2019/09/21/typora-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
+      <url>/2019/09/21/typora-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script><p>标题</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 一阶标题  或者快捷键Ctrl+1</span><br><span class="line">## 二阶标题 或者快捷键Ctrl+2</span><br><span class="line">### 三阶标题    或者快捷键Ctrl+3</span><br><span class="line">#### 四阶标题   或者快捷键Ctrl+4</span><br><span class="line">##### 五阶标题  或者快捷键Ctrl+5</span><br><span class="line">###### 六阶标题 或者快捷键Ctrl+6</span><br></pre></td></tr></table></figure><p>下划线</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;u&gt;下划线的内容&lt;/u&gt; 或按快捷键Ctrl+U</span><br></pre></td></tr></table></figure><p>字体加粗</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">**加粗内容**    或按快捷键Ctrl+B</span><br></pre></td></tr></table></figure><p>斜体</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*倾斜内容*  或按快捷键Ctrl+I</span><br></pre></td></tr></table></figure><p>文字高亮</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">==我是最重要的==</span><br></pre></td></tr></table></figure><p>角标</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x^2^    H~2~O</span><br></pre></td></tr></table></figure><p>文本居中</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;center&gt;这是要居中的文本内容&lt;/center&gt;</span><br></pre></td></tr></table></figure><p>有序</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数字+英文小数点(.)+空格</span><br></pre></td></tr></table></figure><p>无序</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ 、- 、* 创建无序列，任意数字开始+空格创建有序列表</span><br></pre></td></tr></table></figure><p>Todolist</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- [ ] 参加会议</span><br><span class="line">- [x] 中超足球赛</span><br></pre></td></tr></table></figure><p>Table</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">快捷键Ctrl+T弹出对话框</span><br></pre></td></tr></table></figure><p>分割线</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">***+回车  </span><br><span class="line">---+回车</span><br></pre></td></tr></table></figure><p>图片</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![图片内容](http://t10.baidu.com/it/u=1069603383,3074552113&amp;fm=170&amp;s=771B15C75C12D8D61C3C69FB0300501F&amp;w=640&amp;h=426&amp;img.JPEG)</span><br><span class="line">也可使用快捷键Ctrl+K</span><br><span class="line">PS：也可将图片直接拖拽进来，自动生成链接</span><br></pre></td></tr></table></figure><p>链接</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[百度一下，你就知道](https://www.baidu.com/)</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">[百度一下，你就知道][]https://www.baidu.com/          # 第二个括号内可任意填写(不显)</span><br><span class="line">```</span><br><span class="line">[百度一下，你就知道][]https://www.baidu.com/</span><br><span class="line"></span><br><span class="line">快速链接</span><br><span class="line">```</span><br><span class="line">&lt;http://www.baidu.com&gt;</span><br><span class="line">PS：按住Ctrl点击链接可直接打开。</span><br><span class="line">```</span><br><span class="line"></span><br><span class="line">#数学公式（简）</span><br><span class="line">```</span><br><span class="line">Typora支持加入用LaTeX写成的数学公式，并且在软件界面下用MathJax直接渲染。</span><br><span class="line">```</span><br><span class="line">*1.行内公式(inline math)，可以在偏好设置中单独打开，由一个美元符号将公式围起来；name=\prod \frac&#123;1&#125;&#123;i^2&#125;$</span><br><span class="line">*2.行外公式，直接按Ctrl+Shift+M；(双$+回车也可做到)</span><br><span class="line">```</span><br><span class="line">注：上标和下标可以使用数学表达式来获取</span><br><span class="line">```</span><br><span class="line">#其余</span><br><span class="line"></span><br><span class="line">引用</span><br><span class="line">```</span><br><span class="line">&gt;+空格    或按快捷键Ctrl+Shift+Q</span><br><span class="line">```</span><br><span class="line">注释</span><br><span class="line">要添加注释的文字</span><br><span class="line">```</span><br><span class="line">这是我们的标号[^1]</span><br><span class="line">[^1]:标号的含义</span><br><span class="line">```</span><br><span class="line">表情</span><br><span class="line"></span><br><span class="line">```</span><br><span class="line">:单词:</span><br><span class="line">```</span><br><span class="line">目录</span><br><span class="line">```</span><br><span class="line">[TOC]</span><br><span class="line">```</span><br><span class="line">Typora快捷键整合</span><br><span class="line">```</span><br><span class="line">Ctrl+1  一阶标题    Ctrl+B  字体加粗</span><br><span class="line">Ctrl+2  二阶标题    Ctrl+I  字体倾斜</span><br><span class="line">Ctrl+3  三阶标题    Ctrl+U  下划线</span><br><span class="line">Ctrl+4  四阶标题    Ctrl+Home   返回Typora顶部</span><br><span class="line">Ctrl+5  五阶标题    Ctrl+End    返回Typora底部</span><br><span class="line">Ctrl+6  六阶标题    Ctrl+T  创建表格</span><br><span class="line">Ctrl+L  选中某句话   Ctrl+K  创建超链接</span><br><span class="line">Ctrl+D  选中某个单词  Ctrl+F  搜索</span><br><span class="line">Ctrl+E  选中相同格式的文字   Ctrl+H  搜索并替换</span><br><span class="line">Alt+Shift+5 删除线 Ctrl+Shift+I    插入图片</span><br><span class="line">Ctrl+Shift+M    公式块 Ctrl+Shift+Q    引用</span><br><span class="line"></span><br><span class="line">注：一些实体符号需要在实体符号之前加”\”才能够显示</span><br><span class="line">```</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 技巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>英语课</title>
+      <link href="/2019/09/17/%E8%8B%B1%E8%AF%AD%E8%AF%BE/"/>
+      <url>/2019/09/17/%E8%8B%B1%E8%AF%AD%E8%AF%BE/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script><p>Paper Submission Requirements<br>The SIGCOMM 2015 conference seeks papers describing significant research contributions to the field of computer and data communication networks. Paper submissions typically report novel results firmly substantiated by experimentation, simulation, or analysis. As an aid to the community, the SIGCOMM web site provides useful advice to authors planning to submit to SIGCOMM conferences. Papers published in previous SIGCOMM conferences also serve as excellent examples of anticipated scope, rigor, and length.<br>To submit papers to the SIGCOMM 2015 conference, first carefully read the following sections on:<br>•    Experience track (NEW for 2015): a track focused on deployment experience, to which authors may opt to submit. Note that based on the preference authors express at submission time, each submission will only be considered for either the “main” conference track or the experience track, but not both.<br>•    Ethics considerations (NEW for 2015): the conference’s ethics expectations.<br>•    Paper registration: what to register, and how to determine TPC conflicts.<br>•    Paper novelty: what is eligible to be submitted, including policies on prior papers at a workshop.<br>•    Paper anonymity: how to prepare for anonymous submission.<br>•    Paper formatting: how to format your paper, including LaTeX and Word templates.<br>•    Paper acceptance: what to expect if your paper is accepted.<br>Then use the paper submission site to:<br>•    Register your paper by 19:59 Greenwich Mean Time (GMT), January 23, 2015.<br>•    Submit your paper by 19:59 Greenwich Mean Time (GMT), January 30, 2015.<br>These are hard deadlines and no extensions will be given.<br>The information on this page is intentionally comprehensive. There are a few changes in 2015, such that both new authors and veteran authors are urged to read through this page in its entirety. Our goal is to ensure that all authors have a consistent understanding of the submission process, and that everyone complies with the process fairly. If you have any questions about submitting papers to SIGCOMM 2015, or encounter problems with the paper submission site, contact the PC chairs well before the deadlines.<br>Experience Track (NEW for 2015)<br>SIGCOMM 2015 will include a new track, the experience track, for experience papers on the design, analysis, and evaluation of techniques in commercial or otherwise widely used deployment. The PC will evaluate a submission to the experience track with the understanding that its contribution may lie predominantly in extending the community’s knowledge of how known techniques fare in realistic settings, and particularly in settings that most in the community cannot duplicate, for reasons of scale or otherwise. At paper registration time, authors must explicitly indicate if a submission is to be considered for the experience track. Each submission will only be considered for one track - either the experience track or the main conference track, but not both - in accordance with the authors’ preference expressed at submission time.<br>Ethics Considerations (NEW for 2015)<br>Authors must as part of the submission process attest that their work complies with all applicable ethical standards of their home institution(s), including, but not limited to privacy policies and policies on experiments involving humans. The PC takes a broad view of what constitutes an ethical concern, and authors agree to be available at any time during the review process to rapidly respond to queries from the PC chairs regarding ethical standards.<br>Paper Registration<br>Registration only requires submission of paper metadata: paper title and abstract, author names, affiliations, contact email addresses, topics matching the subject matter of the paper, track (experience or main), and conflicts with PC members. The paper itself does not need to be submitted at the registration deadline. However, the paper title and abstract submitted during registration must be complete - not placeholders - and correctly characterize the paper that will be submitted. Authors can change the wording of their titles and abstracts for submission, but their essence should not fundamentally change. The PC will use the information provided during registration as a basis for making review assignments.<br>Both authors and PC members provide PC conflict information. The PC will review paper conflicts to ensure the integrity of the reviewing process, adding conflicts where necessary. Broadly, we define conflict of interest with a PC member using the following principles:</p><ol><li>You are currently employed at the same institution, have been previously employed at the same institution within the last 12 months, or are going to begin employment within the next 6 months at the same institution.</li><li>You have a professional partnership as follows:<br>o    Past or present association as thesis advisor or advisee.<br>o    Collaboration on a project, publication, or grant proposal within the past 2 years (i.e., 2013 or later).<br>If there is no basis for PC conflicts provided by authors, those conflicts will be removed. In particular, do not improperly identify PC members as a conflict in an attempt to avoid having an individual review your paper.<br>Paper Novelty<br>Under no circumstances should authors submit previously published work, submit the same work simultaneously to multiple venues, or submit papers that plagiarize the work of other authors. Like other conferences and journals, SIGCOMM prohibits these practices and may take action against authors who have engaged in them. In some cases, the program committee may share information about submitted papers with other conference chairs and journal editors to ensure the integrity of papers under consideration. If the PC discovers a violation of these principles, sanctions may include, but are not limited to, contacting the institutions of the authors and publicizing the details of the case.<br>SIGCOMM will review extended versions of previously-published short preliminary papers (such as workshop papers) in accordance with published SIGCOMM policy and the ACM Plagiarism Policy. To preserve author anonymity, authors MUST cite this related prior work, while making a good-faith effort not to reveal common authorship. For example, such a submission should not explicitly point out that specific text has been adopted from the author’s own prior work.<br>Papers accompanied by nondisclosure agreement requests will not be considered for publication, nor ever disclosed.<br>Paper Anonymity<br>All submitted papers will be judged based on their quality and relevance through double-blind reviewing, where the identities of the authors are withheld from the reviewers. As an author, you are required to make a good-faith effort to preserve the anonymity of your submission, while at the same time allowing the reader to fully grasp the context of related past work, including your own. Common sense and careful writing will go a long way towards preserving anonymity. Minimally, please take the following steps when preparing your submission:<br>•    Remove the names and affiliations of authors from the title page.<br>•    Remove acknowledgment of identifying names and funding sources.<br>•    Use care in naming your files. Source file names (e.g., “Alice-n-Bob.dvi”) are often embedded in the final output as readily accessible comments.<br>•    Use care in referring to related work, particularly your own. Do not omit references to provide anonymity, as this leaves the reviewer unable to grasp the context. Instead, reference your past work in the third person, just as you would any other piece of related work by another author.<br>Paper Formatting<br>All submissions must obey the following formatting requirements. Your goal as an author is to produce a clearly readable submission within these constraints.<br>Before final submission, you are expected to make sure that your paper complies with these requirements. Authors are strongly discouraged from violating the formatting requirements with the aim of including additional material: submissions that violate the formatting requirements may not be reviewed. You can visually inspect a page-by-page report of your paper format using the same tool as the submission system via a separate online form.<br>After the submission deadline, we will use the same tool to check the conformance of papers. The format checking tool uses heuristics and can make mistakes. The PC chairs will manually inspect and possibly reject those papers with evident format violations. However, no paper will be rejected due to format violations without first being checked by hand.<br>•    Submit papers of no more than twelve (12) single-spaced pages, including figures, tables, any appendices, etc.followed by as many pages as necessary for references. Papers whose non-reference content is longer than 12 pages will not be reviewed. Note that this length specification is new in 2015, and differs from that in prior years.<br>•    Submit papers using a 10pt font on 12pt leading formatted for printing on Letter-sized (8.5” by 11”) paper. Paper text blocks must follow ACM guidelines: double-column, with each column 9.25” by 3.33”, 0.33” space between columns. Each column must contain no more than 55 lines of text. For submission, use the following LaTeX template or Word template to ensure compliance. Please do NOT use copies of these templates that you might find elsewhere since we cannot be sure that those are compliant.<br>•    Note that the final copy will be 14 pages using the ACM standard 10pt format. This style may result in more text than your submission so that you can adequately address reviewer and shepherd comments.<br>•    List the submission number and the number of pages in your paper in the author block, e.g., “Paper #N, 14 pages”, beneath your title. Registering your title, abstract, etc., will provide a paper submission number. Per the anonymity guidelines, remember to remove any author names.<br>•    Provide an abstract of no more than 200 words.<br>•    Number the pages.<br>•    Submit papers in PDF (Portable Document Format) and ensure that they are compatible with Adobe Acrobat (English version). Other formats, including Postscript, will not be accepted. Avoid using non-standard fonts. The PC must be able to display and print your submission exactly as we receive it using only standard tools and printers, so we strongly suggest that you use only standard fonts that are embedded in the PDF file.<br>•    Ensure that the paper prints well on black-and-white printers, not color printers. Pay particular attention to figures and graphs in the paper to ensure that they are legible without color. Explicitly using grayscale colors will provide best control over how graphs and figures will print on black-and-white printers.<br>•    Ensure that labels and symbols used in graphs and figures are legible, including the font sizes of tick marks, axis labels, legends, etc.<br>•    Limit the file size to less than 15 MB. Contact the PC chairs if you have a file larger than 15 MB.<br>Paper Acceptance<br>The SIGCOMM 2015 PC will notify authors of acceptance/rejection decisions by April 24, 2015. All accepted papers may be shepherded by members of the PC. Authors of accepted papers should plan to interact with their shepherds immediately after notification, and to budget sufficient time between acceptance notification and the camera-ready deadline to coordinate with their shepherd. It is a requirement that the paper be considered acceptable to the assigned shepherd so that the updates to the paper reflect the issues raised by the PC (conflicts will be mediated by the PC chairs) before the paper is considered “accepted” to appear in the conference proceedings. In addition, the publisher of the SIGCOMM proceedings will review all accepted papers submitted for the camera-ready deadline. Authors should also budget sufficient time immediately after the camera-ready deadline to be available and responsive to any editing changes requested by the publisher after submitting their camera-ready paper.<br>After acceptance, substantive changes to paper titles require approval by the PC chairs. Only in exceptional circumstances should authors change their author list, and only with the approval of the PC chairs.<br>Authors of accepted papers will also need to sign an ACM copyright release form. Electronic copies of the camera-ready papers will be published on the conference Web site before the conference, unless authors specifically request otherwise. All rejected papers will be treated as permanently confidential.</li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 课程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hexo文章格式</title>
+      <link href="/2019/09/10/hexo%E6%96%87%E7%AB%A0%E6%A0%BC%E5%BC%8F/"/>
+      <url>/2019/09/10/hexo%E6%96%87%E7%AB%A0%E6%A0%BC%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script><div id="hbe-security">  <div class="hbe-input-container">  <input type="password" class="hbe-form-control" id="pass" placeholder="输入密码，查看文章。" />    <label for="pass">输入密码，查看文章。</label>    <div class="bottom-line"></div>  </div></div><div id="decryptionError" style="display: none;">Incorrect Password!</div><div id="noContentError" style="display: none;">No content to display!</div><div id="encrypt-blog" style="display:none">U2FsdGVkX1+7Hh0iau3XuL4d9i4dkBRBf9fHP0RxBK1j/gBEtJZaA/Fn/RTDlrdR4w2EL5VfM1qeh7HLmcnxzoVew12g1fVRV35EoSI5KfY/dMr5c8UiQUIT7HozSYjUsZRP2OZJ2IYUEp1HonGrIfCGqwxKZ9CqIPiNMgFTGyBu4lRZY0fAdKYweiD6o3AySo02X52RNp5070/Hn6+4WqXZs6/KxhCJ8Ebi3CIkOLkrexrv66GTHIHXyCGzadwJW3veS647vtOCR7Y7m/R1h32q+tJNB8xiIzVnfDogZ5/MCjX2D1+cbJWr4d0n07bvwOndOpM2FpeWsKzYLDRVQ/KijpAy99uxgFfeURIyFIdtPb2LJv/EwOC+eP4OSWXXECZ/tvxX0nccpWdfLScrRGAtIs523Yy9RVhMF3yTn7jbMYwB6QMA/LGRdQzrM8YuX9TxRz3Ljn2TX+Qw0iIeNn4eYyc7MFeodFjCy0U+72H7kxxeiIKCt94/r0FebU2WMHicHkoGgGTEQ9sNnHDhX+Vqk8jY8DIxz+fu44i/usuPjc2TUPj2SNLZqm8x24cSGbjn+EgrhIVOvv+W4gKGyliOE79LjrIaNFDAn9eKABRmRlPAzxwGrGPKnJLT81P7k3ix7yTUd8zTpNOWevW7YRfVdpB4qoUqnheB6rRvpK2iyGnrlwnNV+ZrP+1DXZjFvuuO+zInf8I1BDJUOD+e11x7kFCO68GA+Ny8Ett7SLjE+NZbYoYTo94NgN3Or4MqWFxGbGDQjDtEh6dY8bI+9nxnpcyw2M/X/oMFUliI0hGn1uTlflAI49c9YWr8ar7iZFFSLmL2kNWfxBHyxZWNr3a6ByC1ohDyrKkW7Oxi/wP28KW+RGfIB2nz472tUWJEtpgoNcAdPAjpnrvBHOanKrdFz3WvtMb72MQ3xGac/oWpjUBMbTqk63zkWOB/8su18yh9s8etz9tdKtnOtfuI33eghMrk4o/EpafAyAsY2rB1TjKf4yL5aBxS3hdvGkxZlk7C4DQRao23oskH2ZB7mdMdDOTbhug44e74KvUDJxk6czwbBnUWyzf2gE5ky5tms9KKDgew8+PaRf1mzJgktkb7KqYnjMv4oUiIcD/twWNlcVy0VmvL/x8bWA6VmJoJB6jqBsvpIiEvzqDM8359PVLYBA0SaSgbXdRQDwjoi11oEFXiqOu04pETPLzkLRMgkDYIZ91H2fD1rPSdhwzHmZUOMyvxBdC0Q6NzXSlk5PJ18VP17ThvLn0Qfe3uw6irHusMYrVIVZ/kzJGmhp9OU+hCyE/sd7iKw/V1lNKHzNgywEJBTSeVIo+l/9ecP5kYxox4JUNccjju2oKndYUAxFq2DgcBRoe+5oRbSMz409VPLl6FtKlXIzn+71edsBcUOW7SZbGrZRxbPNNstHofc1w7K7Yz8aCOqqaKHoFTj2eDblcv/5nzJhXtJWejgCRpYByCcMAnvchEHXbE4SVXc3EUrNSr463Ed43vvvHbqcEtVZIV+Z29Up3utXWUTwkxVIe03eam0wl2L1cmOeS0S6zLYAq+2nlfZ2l6XqWgKPN5m3MX304V+4Ue+tfojj2fEnFMiFoDaKZdJNTxYvSk3mZy3fompHc83Eo0mi9s3XTWPxKqKP2QlyQ55dcrOV2pIC9AXNyF1jZ+uypHJeyVaEjEWxlESYEkhwxYeQ4u3ugw7w6hT1PFXQc6RCTtuazpyyQdiUMPXkqMx65EK7sKTjNSwc/S8Drp7vi664S9JZmaZhtMVFduOn0/d8c6dWtw7ELmELlfK8/JF9lGx2sojO3lwGgn4k0sSn2UkKwZ4XwegmyXRZZ8rCSt4uAmPb4EkXV/WjUddq2rMOk7g1fJ6u/p5sRuqGFHr8NMsMrMtk5IgtWoH5WWpRaVD7gfCIPO82UDIyxnMTCL6wyxwm9MlSR4Ek8fg5LO4bWpgONo5gDIA6QPv4H/I+0Tofu06sUHBgrJo5S11szmaQS/NoocyU57+TY7JYVMINodi6MuvIMMTwum7U3DzRU1sQ4YGSakQs2a+5E9ya+rnvMJ6gvylCncrZ8gqOhMZLaKzIfVpDEL+cuUBYEmgS6K+lfalk/+RED6Hg8YTYQg+TsgaUwQrbnlyljUjzvlyCBCdzS/2Z+IE0ROe2wa0+8Oat2v/Wbbnd/fmEnJOxClxvh+9yqIwZLomZUb2NsRiCRSCEhOXSQvV7e8CdQTTm17GgRgU5JW6ulAPvY76Ho6Zg9rEljvBajxZy5vk8X/kP6Qc/m4y+umXPiT8QXy6UvS22yHVgtX6dW5hKMj7ThNUjYh78RVPeE4n1YD3DhxZRmhHm5bvGV0wNkr15NPVhiQ+H3UpI1sRkqCxHw6Lg7al7PEEmJhLH0C7SHsAzqP1hCNpoEeud8ebv9FQte7wNy8KOZfKzAL77H8ASP3ZpDA8B+OcAkvPQm3qvD7Fa2gCdToLcdGX22uKaD+gc7G5hRr28bpuORpRhNUbNp4F7qlQCYPZvr8EOil9+8myIuM7TWrVN2WOHbuj+8ajwHoRPJZ9illdxxVSL4BSDaYXkmBDaNitQwpClnq7M6ynHFcypH47/gHHmlrAPBfCj2Ue1i1dX5bo9/aEvGUMVaaf7RcHd4oXd5irF8W3WqIutuL54EfAEF3T57kmrMY9Z2Zz1/7X/ulZJyGbOjWyz+k3y9iVbW+S0Vx8so5eV9+seSnQW0siH+Uk6vFZG2O5XMK/Iq0n5rln2EYWoSYJ676R/u/pKwvVGh2EkEumMBDAsMWMgfqg1YtPHwzxmrb9WSs4BnF96llsq2VWF/+TzOtyjLlWJcZbl97SRpl8OnupcIGE2Qd/BwykbTtpu0ISajLovwV/n55W17Je38LnRfP0kxjfXBEXBZjznYIRagKaqegZ/u4zAFOABO7gfxPzAn3VeDrH/tJlxeScN43XNC162dVAyRjgvuz1x75olehr4zfiuHQwRipaRr+g9yN4u24zPEEJrokeEw2NSU1U4PDnuOntg2EGs8Id1LM9xNrOEPU+LmiY8ubD2ZSzPDFZfS1zBmQrvbC9c/iL5BEivCeaJGNeM9KJXvL4MfjeCm6lUhtdx1et9e0tR3buMtSrAna9tE7do4N0QN57De8K0rdHKeKoUwMUg03vPd29ph6ngv6P4wWhrhp4wjquEpbH47PoOLQ32j8ixLiMIK7/Dw+V/QcdjeghAKci0eQOAqNgyX/VE1ej0WEBe/chWnPfhnQqjrC2bmDRRnkQ5OhznWKoB5iYkl4OtcF3EH9Yb/FhzheYrCgkWDFh+cVxMDwFb78l5XRNaqvXHVch1PRpmmZlS7gX1mfMTRJMrym7litXUw3iYUxBvyb/LB8tHyIhZr/AzjOOfU6GWxA6h+Sr+iKrD7206cL8w0GDWgSP7hIeceVRbqM6FrWVKlFflQ5luhaNfEsYHGfmzwb2k8CVALNKE8qTomGd1wQru2sxKeaypDUSp5VbfqAOkW6U4WdYYi22sFVibYKlcUdERgKzLXTScEDQbDzZ6Cl60HKzjT+4G0s0eh5WbUXf012uX383SQQMhdozTTqUODcj+zxIWRIB5KN+xEPekmAr24Lf7yICG+0JEkQizcEWf+oLO2lhHRqhpg0SM7K9LpnZxH59pMkx1/eCr5lGIShaKIJaYg5+teDlHke16kFWzvHw45Gz2fQToQMpUFE1+q7Dv+MjnM4szMses27GgeQOKActiNL/G4Kj1YAhu8/HWwKY8sHBpSY8Hh7ps8vLPcNiAy8fmCv9gu4HBPWRzUTNmtkIy+P1gpGoHTSFRtwuPH+95rHpTkp/ojuNpiOSR/dBjPV0SB3ZZ3qP2VyHqEX7GizFiRJyC43j6ZPtsbiMvW995V8CFDSUEFTyU8badCNCs1DVT7XICz4FCv5jNAbhWflDt8iZ2E3HkaKP8k1Xg25maRWKb+/eYddNAlo1638wt5PJ4w6Dn7aBMSfnT2tPn510iCe4H/mJIL9QftVEsMtusOuXmLrG5mqL+YwFyp0ZczJIbkUH46k0Z2jGrWUZxjSxcD19I+mBqsmjtfKnW+39ta79utbL5HYA/fvmxgeFqDP1YRerJTkkKSoHsugd0N3AoYQ4mvA+mmp/NUn5r+eQwUtnwRgQoOyhf54F4YhPPCWmgW0n2nSVwA7I9hd6BMfakIGr/HtMBAsJvBOd6lSRlESt4UwmUbsc9tQ+cVMRqjzonwGCjHCD28wMUfWSM0GhaLhTKFJDMkoZhBV1MJFNAhj0pizOukCcENk3AmG3OT/vufCT71JsXJ5jVu/BtSN+OrkhMZw5iv2YKqVvzLMvH+mMryDFvJqPMRDKmAnf8ghfTIzxtm9Qp5rKQPZ9vUm/gXUWSegEDJswXq8imtqEsKS7vBHo//djs52khF3E4LJMqrnUW9WIb1+znV24jwmLItVdPVaxpABBFEClsaSbt/PzqFKoa6J81uhbAM+XWjBopiu47rYHrLl0wwyzdjoyfHFoasgiSphv7Qgu5hDduJi94dY169pTC7wwZcUZbSN7ApmqmYhkZEDhMEaag/ul5YMQvGCP1CViZxZBdDMPy2d55LgDe5CFqvHaHuNza/DD7df+zdkLkLdsMsX2tmfMbj23PVkMqCyvzSk6RNVz6UdSC2zeDbO8OX4pbKj/VOXY1zJDDrGwiy46Hi+1ahhQVYo/CjAitlHjeGUnvyUxJDjyFfNlXKWYDjir0cY/WuphtkaqJP5/qcWAxVyrRDaxqLc1PIVEfE8ox3W501UtvXSgff71ob9zPaOZ1oNsNNi0I5lQxh2TVoLeCweyek2Mv8v90tZ0Y/zYo3wmJmog80e0P/8H/1wJoNVY0O8ReIchNXune2s0Z/zGoe7nzr/0MmS/dbaRRlwK1zHUFeTxPVtAY2rTdK6vPXO5EJm8oHwImZSRjIL8di5zPiftC5MXvEKRcBevqhlc2zQJ/3w1g+3xuDYeVAFmPBSpcsQZ1cxqYMamZHkYwuzzCLNglLHyrbngyG+5xnziG4A7DMRZ5EPdAae7ZD/+w2J9Mitq+DhpoVprD8yvqenBZ9Xpk6N+tAUQjaW2fCH66DSRhlgrEAWvLmODOpIfqqB91DtJq6N/9sTFZ51nksqOQIlWcj7hwXrZqrROBzxtDaJd8vJc74k4lSDHONdyujyh2jz0nAha0ReTlwdJB0X3lQllDm2p6ils3tNyp978eQ0YNr/o607WeyM3Bm2hEeM830NWrSS2/khOZJrOdJGY7TwQfCEs4CG58IcuAc7hmsdDvT8wmYkxnqx3Y59WEiqHMJp32K3IWmcqP/13h7xmgSUURVsXiKu1t8AFPHZAbxfcLmu8rAjgbpqslDZOjuMi7q9E9Q4fFO76Y1Cd01rGXD8r9/YXJEy9aqcXV5aR8svaczQHqx+SZmmdwS0uW+a8yKoj6DZXOjClNk8s4grS57PJ4eEgPEf2HuSqiJWq6O7f5sXqSlDDTrLy6EMYP9YZQBsaSUOh3L1OTyEl0cCQo6RB+us0sh0cHm3jLkLFY2jXBPAGp+b0rQuOGKh7xbAuC5PWo6wkQYy5zfyvEZjfC1EjnIgCGr2hLe6lJM9v+lf4QSHfU/R7cKy24Kl3KJXspJy0jd7pEhXVNnoiPv+kgMDQWtiOA8sk+CfcxXxA6q2Sh42c6mgYlxWQmYmRgMSC+0solsH2zNUHt/OMcK3raODuNkAeEwawMUqLQErxuazdmIxrl8DdWlr40mifbipCxYOzApWbwAxTn5Y+6uHiDzwnvNTbFtKMvyhtcBebVVi3NycPlRp55z2H/Jp/b/dJainvGkkjT7Sc0qzJZztmLerHIwCArJkuma7Jc4kgtuJ9hrfMXv8u77Cp0/wHZPeSxmZlY+g3Tfm2nZ+8PbNNXf+6zSl8oCA1wz+qVubJfQoIz26K4rvsefM9HzbnoB6NsJOYXWZ7wY2JF/c3Y1tNmDjPDzipj0hYcqhTPnIj8yVmUd+HcJ04/y0g+ZGIG5gJWbzS/ZhZnj2FvNtVHyTjBo9YITWH6+AZhoifAYoor7nqE+1NFqBAQjNWhhc+Vutm+yHkA9xEJ7QIN/VbX4VswUHC5pxOnjz/kp1JrWKq9IUNTAr6Hpx8ZMyQNSBhSBbuhKWZaCg/ymv2bMVEwy4JGtH2n4b0oawHJnrN3v4uwFpZlioyWiPnk+KCUeG/8D7cBuB+TeqIAKGe/aXyLN9PGaksCj5cdVbPi5LxSpmrRaMVYYwt/lQYLQPjTW/+vQ+9XnQSo3psr/jVKkcUaXf4F6cBjWQlviVeW/l8PN71cWeqJZgt3rvZYMLSUBr5s1xN1q2+el8UeIDy1UDw3lKxrEKhA5QksC1wXX4EYNLKibMm5Rl0b4/4azRRuWbTEryu6tyrm70xfNG8hAVvkE2VfStVFhzWt75ntOmALKUYJ003BgxPlyHatbh1704d12U71bCZKXK/3Q/qEkGek/vOktkvOBtkc93DNT1AKDPKSWaJh/AXzTnXD/ZphmaWZ8zEpWW/Ve5LA5C6bJMxAxjKbJAqp5klEtv+r5vXbh6uTKHbEBItMVBRFJLbEtBAgJCjZMItOvJwr7FZF/0U8AmWzQxpV8mJpGWYcgWRxLjFS4RoTeWnELeRShba0lf9CFdUQOC9DttQUd2VtCXQKOhPh14TqXOfpxWs7Hw+/+eDcLCE0lJICBGou81Vf4lhZQseQYGCR1vzGXoXQ7HdT1m6ShANbUW/UJA/9HICXU4C9+ehPabztQlUUXUuRYuHyXMjrwYQz6tQPb9dIWL1Q5Ne6rcYJba4QRBKF4+6DU4welfR+1ZBAYqeOb7ey8tzLCOpY6WhX/Bs6JJzvKsBesppppMBHTw5QbE3sj6AvRcAQ4cbzb6Ei/g5Zvo7DR5rNrIcH8HjGG6lSzJGEaHRA7N4j7pCl5SzMkAHla56Eqs29GQE8GwA7WtKBNabFFAZU99pyhpLQkQDEXc0MKUQxa/nqNpfTyNSj//7m8130iRGtPrTSTQiEQVjKd42Xtb7bzdkGR/QHja5kFEC/DlAs+Xxebak0zexTUztwPeKVskmh99evd8mlDzRbYXg9W1oba+ODRpO1G22wvtMsLtB2XYbflkU25X2y0u5TSiJPHzyY+DOueRBXYjt66DonQusSYSVl63ANC6kEFOQGQ5xYchlngqdjPIFUqZ5bvtDuvQVLQCEeHnAN0DGXFJXAT5Fqb93THM0r0VTN8pNaLKUypQ+DMZCxWnN68V51T4193LSR3jTK7PEtqUUZwvLFUzw5X7/pPiQWat4/44ulAhntvqbICHCY3X/bUwAtASYxfsV+/P5rokDLrwBkpexih/IJulo0Bhs/uk4ex8NSg61GRo1pgF/Y/+mx4BuI0UoNplom30EvNBSLCI9h1OGNEQoYHlAJPTGvMnl50K9TadZ/OAA1HUP8tBrPUPb1B2z/lok4O+unadkannDNVqpQayriwAkV3fe+vsMWw8cCMZFY5Cl8PTRyP729RYgcWO2i1Sqy9gClTIFh+JAzSnl6bCO17x5pY0zrU6z0fymafCNExpfBDVIRRWq4zvQyC4/ToLnn9g+pjtKTHsfMycJQshD7H7j1c3R6w0c8WgWsWIwB0lArvUaTxK9MPbRonxpaNYV80PMKVD0TUac4g+k2OFYcE7PxcwEhtky/wdPj9tifHn9hA0F5P9mm2jqrujKZDCjxFmyVvIC2/i0z5Sd1mk+/OdofTc</div><script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 技巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MarkDown基本语法</title>
+      <link href="/2019/09/10/MarkDown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
+      <url>/2019/09/10/MarkDown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script><p><a href="https://www.cnblogs.com/liugang-vip/p/6337580.html" target="_blank" rel="noopener">点击查看</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Markdown中，以下字符支持使用反斜线转义：</span><br><span class="line">\   反斜线</span><br><span class="line">`   反引号</span><br><span class="line">*   星号</span><br><span class="line">_   下划线</span><br><span class="line">&#123;&#125;  大括号</span><br><span class="line">[]  中括号</span><br><span class="line">()  小括号</span><br><span class="line">#   井号</span><br><span class="line">+   加号</span><br><span class="line">-   减号（连字符）</span><br><span class="line">.   句点</span><br><span class="line">!   感叹号</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 技巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>List数组转换JSON格式</title>
+      <link href="/2019/07/12/List%E6%95%B0%E7%BB%84%E8%BD%AC%E6%8D%A2JSON%E6%A0%BC%E5%BC%8F/"/>
+      <url>/2019/07/12/List%E6%95%B0%E7%BB%84%E8%BD%AC%E6%8D%A2JSON%E6%A0%BC%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script><p><a href="https://blog.csdn.net/jiangcheng2016/article/details/79429755" target="_blank" rel="noopener">List数组转换JSON格式</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 技巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何添加params,并且在页面取值</title>
+      <link href="/2019/07/12/%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0params-%E5%B9%B6%E4%B8%94%E5%9C%A8%E9%A1%B5%E9%9D%A2%E5%8F%96%E5%80%BC/"/>
+      <url>/2019/07/12/%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0params-%E5%B9%B6%E4%B8%94%E5%9C%A8%E9%A1%B5%E9%9D%A2%E5%8F%96%E5%80%BC/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script><p><a href="https://blog.csdn.net/z69183787/article/details/16342553" target="_blank" rel="noopener">struts2的@Result annotation 如何添加params,并且在页面取值</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 技巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>struts2注解总结----@Action和@Result</title>
+      <link href="/2019/07/12/struts2%E6%B3%A8%E8%A7%A3%E6%80%BB%E7%BB%93-Action%E5%92%8C-Result/"/>
+      <url>/2019/07/12/struts2%E6%B3%A8%E8%A7%A3%E6%80%BB%E7%BB%93-Action%E5%92%8C-Result/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script><p><a href="https://www.cnblogs.com/clnchanpin/p/6813273.html" target="_blank" rel="noopener">点击查看</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 技巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>向前</title>
+      <link href="/2019/07/07/%E5%90%91%E5%89%8D/"/>
+      <url>/2019/07/07/%E5%90%91%E5%89%8D/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script><blockquote><p>昨天已经成为遥远的回忆，今天太阳已经升起。<br>在暖暖的阳光下，我们不畏家境的贫困，我们不惧生活的压力。<br>我们会依然顽强坚毅，我们会仍旧拼搏努力，我们会继续好好学习，有你们与我们同在，明天我们一定会让爱之虹绽放出更加灿烂的彩虹，永不服输。</p></blockquote>]]></content>
+      
+      
       <categories>
-        <category>开始</category>
+          
+          <category> 开始 </category>
+          
       </categories>
-      <tags>
-        <tag>日常</tag>
-      </tags>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> 日常 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
 </search>
