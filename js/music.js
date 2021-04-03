@@ -5,8 +5,8 @@ var aplayers = [],
 				container: a,
 				audio: b,
 				mini: null,
-				fixed: true,
-				autoplay: !1, //控制自动播放
+				fixed: null,
+				autoplay: 1, //控制自动播放
 				mutex: !0,
 				lrcType: 3,
 				listFolded: !1,
